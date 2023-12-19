@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwyqvgyoxggk8"]
+
+[ext_resource type="Script" path="res://Scenes/wall.gd" id="1_rne5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xej3g"]
+size = Vector2(16, 480)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ch4h"]
+size = Vector2(800, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tlq7"]
+size = Vector2(800, 16)
+
+[node name="Wall" type="Node2D"]
+
+[node name="Left" type="Area2D" parent="."]
+script = ExtResource("1_rne5h")
+
+[node name="Collision" type="CollisionShape2D" parent="Left"]
+position = Vector2(-8, 240)
+shape = SubResource("RectangleShape2D_xej3g")
+
+[node name="Right" type="Area2D" parent="."]
+script = ExtResource("1_rne5h")
+
+[node name="Collision" type="CollisionShape2D" parent="Right"]
+position = Vector2(808, 240)
+shape = SubResource("RectangleShape2D_xej3g")
+
+[node name="Top" type="Area2D" parent="."]
+script = ExtResource("1_rne5h")
+
+[node name="Collision" type="CollisionShape2D" parent="Top"]
+position = Vector2(400, -8)
+shape = SubResource("RectangleShape2D_2ch4h")
+
+[node name="Bottom" type="Area2D" parent="."]
+script = ExtResource("1_rne5h")
+
+[node name="Collision" type="CollisionShape2D" parent="Bottom"]
+position = Vector2(400, 488)
+shape = SubResource("RectangleShape2D_7tlq7")
+
+[connection signal="area_entered" from="Left" to="Left" method="_on_wall_area_entered"]
+[connection signal="area_entered" from="Right" to="Right" method="_on_wall_area_entered"]
+[connection signal="area_entered" from="Top" to="Top" method="_on_wall_area_entered"]
+[connection signal="area_entered" from="Bottom" to="Bottom" method="_on_wall_area_entered"]

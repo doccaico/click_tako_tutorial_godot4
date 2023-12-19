@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c21vrucd5ql8c"]
+
+[ext_resource type="Script" path="res://Scenes/tako.gd" id="1_iwq83"]
+[ext_resource type="Texture2D" uid="uid://oesm1mwaorf3" path="res://Assets/Images/tako.png" id="1_yf4oo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tapcn"]
+radius = 58.1378
+
+[node name="Tako" type="Area2D"]
+script = ExtResource("1_iwq83")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_yf4oo")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_tapcn")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

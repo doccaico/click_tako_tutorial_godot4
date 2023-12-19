@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://leopi0hywivi"]
+
+[ext_resource type="Texture2D" uid="uid://mb02mam41288" path="res://Assets/Images/bg.png" id="1_k0fex"]
+[ext_resource type="PackedScene" uid="uid://dwyqvgyoxggk8" path="res://Scenes/wall.tscn" id="2_yv6u7"]
+[ext_resource type="PackedScene" uid="uid://c21vrucd5ql8c" path="res://Scenes/tako.tscn" id="3_b3nxa"]
+[ext_resource type="FontFile" uid="uid://bfriwxqx284hj" path="res://Assets/Fonts/Xolonium-Regular.ttf" id="4_mqgcp"]
+[ext_resource type="Script" path="res://Scenes/gameover.gd" id="5_lm7b0"]
+
+[sub_resource type="Theme" id="Theme_txi0y"]
+
+[node name="ClickTako" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_k0fex")
+centered = false
+
+[node name="Wall" parent="." instance=ExtResource("2_yv6u7")]
+
+[node name="Tako1" parent="." instance=ExtResource("3_b3nxa")]
+position = Vector2(90, 201)
+
+[node name="Tako2" parent="." instance=ExtResource("3_b3nxa")]
+position = Vector2(196, 82)
+
+[node name="Tako3" parent="." instance=ExtResource("3_b3nxa")]
+position = Vector2(519, 99)
+
+[node name="Tako4" parent="." instance=ExtResource("3_b3nxa")]
+position = Vector2(348, 129)
+
+[node name="Gameover" type="Label" parent="."]
+visible = false
+offset_left = 3.0
+offset_top = 224.0
+offset_right = 796.0
+offset_bottom = 288.0
+theme = SubResource("Theme_txi0y")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_mqgcp")
+theme_override_font_sizes/font_size = 48
+text = "GAME CLEAR!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_lm7b0")
